@@ -1,3 +1,4 @@
+# this is for demo purpose
 # Use a base image with Java and the desired version
 FROM adoptopenjdk:11-jre-hotspot
 
