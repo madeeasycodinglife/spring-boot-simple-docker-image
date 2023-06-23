@@ -1,0 +1,88 @@
+# Use a base image with Java and the desired version
+FROM adoptopenjdk:11-jre-hotspot
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the JAR file of the Spring Boot application to the container
+COPY target/my-spring-app.jar /app
+
+# Expose the port that the Spring Boot application listens on
+EXPOSE 8080
+
+# Specify the command to run when the container starts
+CMD ["java", "-jar", "my-spring-app.jar"]
+
+# ----------------------------------------------
+# Here's a breakdown of the key instructions in the Dockerfile:
+
+# FROM adoptopenjdk:11-jre-hotspot: Specifies the base image to use. In this example, it uses the AdoptOpenJDK 11 with the HotSpot JVM as the Java runtime environment.
+
+# WORKDIR /app: Sets the working directory inside the container to /app. This is where the application files will be copied to.
+
+# COPY target/my-spring-app.jar /app: Copies the JAR file of the Spring Boot application from the target directory (assuming it was built using a build tool like Maven or Gradle) to the /app directory inside the container.
+
+# EXPOSE 8080: Informs Docker that the Spring Boot application listens on port 8080. This is not mandatory but can be helpful for documentation purposes.
+
+# CMD ["java", "-jar", "my-spring-app.jar"]: Specifies the command to run when the container starts. In this case, it runs the Spring Boot application JAR file using the java -jar command.
+
+# Make sure to adjust the path and filename in the COPY instruction to match the actual location and name of your Spring Boot application JAR file.
+
+# With this Dockerfile, you can build an image for your Spring Boot application using the docker build command and then run containers based on that image using docker run.
+
+# ====================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

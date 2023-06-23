@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - web_data:/var/www/html
+    networks:
+      - frontend
+      - backend
+
+  app:
+    image: myapp:latest
+    volumes:
+      - app_data:/app/data
+    networks:
+      - frontend
+      - backend
+      - database
+
+  database:
+    image: mysql:latest
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend
+      - database
+
+volumes:
+  web_data:
+  app_data:
+  db_data:
+
+
+networks:
+  frontend:
+  backend:
+  database:
+
+    # Let's go through the different sections of this docker-compose.yml file:
+
+    # The version specifies the Docker Compose file format version. Here, we're using version 3.9.
+
+    # Under the services section, we define each service or container in our architecture. In this example, we have three services: web, app, and database.
+
+    # For each service, we specify the image to use, pulling it from Docker Hub or a private registry.
+
+    # The ports section maps the container's port to the host machine's port. In this case, we're mapping port 80 of the web service to port 80 of the host.
+
+    # The volumes section allows us to mount volumes from the host machine into the container. Here, we define named volumes for web_data, app_data, and db_data, which will be created and managed by Docker.
+
+    # The networks section defines the networks to which each service will be attached. In this example, we have three networks: frontend, backend, and database.
+
+    # Finally, we define the named volumes and networks under the volumes and networks sections, respectively.
+
+    # You can customize this docker-compose.yml file by adding more services, defining custom networks, specifying environment variables, and adding additional configuration options as per your architecture requirements.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
